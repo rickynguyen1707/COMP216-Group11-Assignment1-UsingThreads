@@ -1,5 +1,6 @@
 import time
 import random
+import glob
 
 NUM_FILES = 10
 
@@ -35,3 +36,15 @@ def second_function(filename):
 
 #for testing
 #print (second_function("D:/Centennial Semester 5/Networking Soft/COMP216-Group11-Assignment1-UsingThreads/COMP216-Group11-Assignment1-UsingThreads/integers-5.txt"))
+
+def third_function():
+    time_start = time.perf_counter()
+    for file in glob.glob('./*.txt'):
+        second_function(file)
+    time_stop = time.perf_counter()
+
+    print(f'Number of files processed sequentially: {len(glob.glob("./*.txt"))} \nElapsed time in seconds: {time_stop - time_start}' )
+
+#test third_function
+#print(third_function())
+
