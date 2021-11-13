@@ -2,8 +2,10 @@ import time
 import random
 import glob
 import threading
+import argparse
 
 NUM_FILES = 10
+total = 0
 
 
 def seed():
@@ -22,6 +24,7 @@ def seed():
 if __name__ == "__main__":
     seed()
 
+
 def second_function(filename):
     total1=0
     with open(filename, 'r') as inp:
@@ -35,9 +38,6 @@ def second_function(filename):
     print('Total of all numbers: {}'.format(total1))
     time.sleep(0.00001)
 
-#for testing
-#print (second_function("D:/Centennial Semester 5/Networking Soft/COMP216-Group11-Assignment1-UsingThreads/COMP216-Group11-Assignment1-UsingThreads/integers-5.txt"))
-
 def third_function():
     time_start = time.perf_counter()
     for file in glob.glob('./*.txt'):
@@ -46,19 +46,22 @@ def third_function():
 
     print(f'Number of files processed: {len(glob.glob("./*.txt"))} \nElapsed time in seconds: {time_stop - time_start}' )
 
-#test third_function
-#print(third_function())
 
 def fourth_function():
     x = threading.Thread(target=third_function,args=())
     x.start()
 
-#test fourth_function
-""""
-print(fourth_function())
-print("text22222 should be inbetween total numbers")
-time.sleep(0.021)
-print("text33333 should be inbetween total numbers")
-time.sleep(0.03)
-print("text4444 should be inbetween total numbers")
-"""
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--function', type=str, help='Hello. Type "seed" for create mode, or type "third_function" for serial mode, or type "fourth_function" for threaded mode ')
+args = parser.parse_args()
+userOption=args.function
+if args.function == "seed":
+    print(seed())
+    print("Create Mode")
+if args.function == "third_function":
+    print(third_function())
+    print("Serial Mode")
+if args.function == "fourth_function":
+    print(fourth_function())
+    print("Threaded Mode")
