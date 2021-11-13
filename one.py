@@ -44,7 +44,7 @@ def third_function():
         second_function(file)
     time_stop = time.perf_counter()
 
-    print(f'Number of files processed in parallel: {len(glob.glob("./*.txt"))} \nElapsed time in seconds: {time_stop - time_start}' )
+    print(f'Number of files processed: {len(glob.glob("./*.txt"))} \nElapsed time in seconds: {time_stop - time_start}' )
 
 #test third_function
 #print(third_function())
@@ -54,11 +54,11 @@ def fourth_function():
     x.start()
 
 #test fourth_function
-'''
+""""
 print(fourth_function())
 print("text22222 should be inbetween total numbers")
 time.sleep(0.021)
 print("text33333 should be inbetween total numbers")
 time.sleep(0.03)
 print("text4444 should be inbetween total numbers")
-'''
+"""
