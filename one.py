@@ -53,7 +53,7 @@ def fourth_function():
 
 #When executing the program, typing "python .\one.py -h" will prompt the instructions if needed.
 parser = argparse.ArgumentParser()
-parser.add_argument('--function', type=str, help='Hello. Type "seed" for create mode, or type "third_function" for serial mode, or type "fourth_function" for threaded mode ')
+parser.add_argument('--function', type=str, help='Hello. Type "--function seed" for create mode, or type "--function third_function" for serial mode, or type "--function fourth_function" for threaded mode ')
 args = parser.parse_args()
 userOption=args.function
 if args.function == "seed":
