@@ -1,3 +1,10 @@
+#Group 11
+#Juneau Gawat
+#Amir Shayan Armaghan
+#Pablo Saldarriaga Gonzalez
+#Nguyen Khang Nguyen
+#Edgar Mejia Razo
+
 import time
 import random
 import glob
